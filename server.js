@@ -30,9 +30,7 @@ var htmlTemplate = `
     </head>
     <body>
         <div class="article_section">
-            <div>
-                <a href = "/">Home</a>
-            </div>            
+            <a href = "/">Home</a>
             <hr/>
             <h1>
                ${heading}
