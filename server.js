@@ -5,13 +5,30 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleone = {
-    'title':'article 1',
-    'heading':'article one',
-    'date': '01 jan 2018',
-    'content': `
-    <p> Born to a Gujarati family in Vadnagar, Modi helped his father sell tea as a child, and later ran his own stall. </p>`
+var articles = {
+    articleone : 
+    {
+        title:'article 1',
+       heading:'article one',
+       date: '01 jan 2018',
+       content: `
+        <p> Born to a Gujarati family in Vadnagar, Modi helped his father sell tea as a child, and later ran his own stall. </p>`
+    },
+    
+    articletwo : { title:'article 2',
+       heading:'article two',
+       date: '05 feb 2018',
+       content: `
+        <p> He was introduced to the RSS at the age of eight, beginning a long association with the organisation. </p>`},
+        
+    articlethree : { title:'article 3',
+       heading:'article three',
+       date: '06 apr 2018',
+       content: `
+        <p>  He left home after graduating from school, partly because of an arranged marriage which he . </p>`}
 };
+ 
+    
 
 function createtemplate(data) {
 var title = data.title;
@@ -54,8 +71,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req, res) {
-  res.send(createtemplate(articleone));
+app.get('/articlename', function (req, res) {
+  var articlename =req.params.articlename;    
+  res.send(createtemplate(articles[articlename]));
 });
 
 app.get('/article-two', function (req, res) {
