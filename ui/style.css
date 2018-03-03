@@ -20,3 +20,9 @@ body {
     height: 200px;
 }
 
+.article_section{
+    max-width:800px;
+    color : blue;
+    margin:0 auto;
+    font-family:Cormorant;
+}
